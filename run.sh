@@ -4,4 +4,4 @@ echo "Running docker "
 docker run -ti --rm -e DISPLAY=$DISPLAY \
          --net="host"   -u `id -u $USER` \
           -v ${PRJ_DIR}:/home/pabitra/project:Z \
-           petalinux:2019.1 /bin/bash
+           pabitra-petalinux:2019.1 /bin/bash
