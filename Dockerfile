@@ -89,24 +89,20 @@ RUN cd /tmp &&  git clone https://github.com/pengutronix/genimage.git &&\
   make &&\
   sudo make install  
 
-#make a Vivado user
-RUN adduser --disabled-password --gecos '' pabitra && \
-  usermod -aG sudo pabitra && \
-  echo "pabitra ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 
 # make /bin/sh symlink to bash instead of dash:
 RUN echo "dash dash/sh boolean false" | debconf-set-selections
 RUN DEBIAN_FRONTEND=noninteractive dpkg-reconfigure dash
 
-USER pabitra
-ENV HOME /home/pabitra
+USER vivado
+ENV HOME /home/vivado
 ENV LANG en_US.UTF-8
-RUN mkdir /home/pabitra/project
-WORKDIR /home/pabitra/project
+RUN mkdir /home/vivado/project
+WORKDIR /home/vivado/project
 
 RUN sudo mkdir /tftpboot
-RUN sudo chown pabitra /tftpboot
+RUN sudo chown vivado /tftpboot
 
 #add vivado tools to path
-RUN echo "source /opt/Xilinx/petalinux/settings.sh" >> /home/pabitra/.bashrc
+RUN echo "source /opt/Xilinx/petalinux/settings.sh" >> /home/vivado/.bashrc

@@ -1,0 +1,9 @@
+
+INFO: Checking installation environment requirements...
+WARNING: Please install required packages.
+Please refer to the PetaLinux Tools Installation Guide.
+
+Check the troubleshooting guide at the end of that manual, and if you are
+unable to resolve the issue please contact customer support with file:
+   /home/pabitra/workspace/petalinux-docker-2019.1/petalinux_installation_log
+
